@@ -2,6 +2,8 @@
 $(document).ready(function(){
 
     $(".forgotPassword").hide();
+    $(".medlemsSida").hide();
+    $(".button2").hide();
 
         $(".button").click(function(){
         var username = "jenny";
@@ -10,8 +12,10 @@ $(document).ready(function(){
     
                         if(username === $(".inputName").val() && password === $(".inputPassword").val()){
                             $("h1").hide();
-                            $(".button").text("logga ut");
+                            $(".button").hide();
                             $("input, label").hide();
+                            $(".button2").show();
+                            $(".medlemsSida").slideDown();
                         } else {$("h1").hide();
                                 $(".forgotPassword").slideDown();
                         }
