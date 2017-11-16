@@ -1,22 +1,42 @@
 
 $(document).ready(function(){
+    if(sessionStorage.username!= null){//om nån är inne
+        $("h1").hide();
+        $(".medlemsSida").text(sessionStorage.username);
+        $(".button").hide();
+        $("input, label").hide();
+        $(".button2").show();
+        //$(".medlemsSida").text(sessionStorage.username);
+    } else {
+        $("h1").show();
+    }
+
+    console.log(sessionStorage.username);
+
+    //sessionStorage.username="Jenny Jäderborn";
+    
+
 
     $(".forgotPassword").hide();
-    $(".medlemsSida").hide();
     $(".button2").hide();
 
         $(".button").click(function(){
-        var username = "jenny";
-        var password = "hejsan"; 
+            
+        sessionStorage.username = "test";
+        sessionStorage.password = "password"; 
         
     
-                        if(username === $(".inputName").val() && password === $(".inputPassword").val()){
+                        if(sessionStorage.username == $(".inputName").val() && sessionStorage.password == $(".inputPassword").val()){
+                            sessionStorage.username="Jenny Jäderborn";
+                            $(".medlemsSida").text(sessionStorage.username);                
                             $("h1").hide();
                             $(".button").hide();
                             $("input, label").hide();
                             $(".button2").show();
-                            $(".medlemsSida").slideDown();
-                        } else {$("h1").hide();
+                            $(".medlemsSida").show();
+                        } 
+
+                        else {$("h1").hide();
                                 $(".forgotPassword").slideDown();
                         }
     
