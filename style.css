@@ -4,15 +4,24 @@ body {
 }
 
 .nav {
-    background-color: black;
+    background-color: #010320;
     color: white;
     display: flex;
     justify-content: space-between;
-    height: 60px;
-    display: fixed;
+    height: 90px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
     align-items: center;
-    padding: 0px 10px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.länkar {
+    padding-left: 20px;
+}
+
+.formulär {
+    padding-right: 20px;
 }
 
 a {
@@ -31,6 +40,7 @@ h1 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 52px;
+    padding-top: 30px;
 }
 
 .link {
@@ -45,6 +55,7 @@ h1 {
 }
 
 .medlemsSida {
+    padding-top: 30px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 28px;
@@ -52,18 +63,36 @@ h1 {
 
 ul {
     list-style: none;
-    font-size: 20px;
+    font-size: 16px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 #main {
-   min-height: 600px;
-   background-color: red;
-   margin-top: 60px;
+    height: 600px;
+   background-color: black;
+   margin-top: 90px;
+   color: white;
 }
 
 #footer {
-    background-color: black;
+    background-color: #444242;
     width: 100%;
-    height: 150px;
     color: white;
+    height: 130px;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.datum {
+    margin: 60px;
+}
+
+.footerlänk {
+    margin: 60px;
 }

@@ -1,7 +1,21 @@
 
 $(document).ready(function(){
+    var username = "test";
+    var password = "password";
     $(".forgotPassword").hide();
     $(".button2").hide();
+    var stuffToDo = [
+        "Klipp gräset",
+        "Betala räkningar",
+        "Köp mjölk",
+        "Spika upp tavlor"
+    ];
+    var json_str = JSON.stringify(stuffToDo);
+    localStorage.doList = json_str;
+    var loopArray = JSON.parse(localStorage.doList);
+
+    //console.log(loopArray);
+    
     if(sessionStorage.username!= null){//om nån är inne
         $("h1").hide();
         $(".medlemsSida").text(sessionStorage.username);
@@ -9,15 +23,19 @@ $(document).ready(function(){
         $("input, label").hide();
         $(".button2").show();
         $(".forgotPassword").hide();
+
+        $("#main").append("<ul class='stuffList'></ul>");
+
+            loopArray.forEach(function(index) {
+            $(".stuffList").append("<li>" + index + "</li>");
+            });
+
     } else { 
         
-        $(".button").click(function(){
-        
-    sessionStorage.username = "test";
-    sessionStorage.password = "password"; 
+        $(".button").click(function(){ 
     
 
-                    if(sessionStorage.username == $(".inputName").val() && sessionStorage.password == $(".inputPassword").val()){
+                    if(username == $(".inputName").val() && password == $(".inputPassword").val()){
                         sessionStorage.username="Jenny Jäderborn";
                         $(".medlemsSida").text(sessionStorage.username);                
                         $("h1").hide();
@@ -26,6 +44,12 @@ $(document).ready(function(){
                         $(".button2").show();
                         $(".medlemsSida").show();
                         $(".forgotPassword").hide();
+
+                        $("#main").append("<ul class='stuffList'></ul>");
+
+                        loopArray.forEach(function(index) {
+                            $(".stuffList").append("<li>" + index + "</li>");
+                        });
                     } 
 
                     else {$("h1").hide();
@@ -35,6 +59,14 @@ $(document).ready(function(){
                 });
         
     }
+    
 
+    $(".button2").click(function(){
+        sessionStorage.clear()
+        location.reload();
+        
+                });
+    
+            
 });
     
