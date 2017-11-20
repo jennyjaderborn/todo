@@ -13,6 +13,8 @@ $(document).ready(function(){
     var json_str = JSON.stringify(stuffToDo);
     localStorage.doList = json_str;
     var loopArray = JSON.parse(localStorage.doList);
+    showDate();
+    
 
     //console.log(loopArray);
     
@@ -66,6 +68,13 @@ $(document).ready(function(){
         location.reload();
         
                 });
+
+        function showDate() {
+            var d = new Date();
+            d.setDate(15);
+            document.getElementById("datum").innerHTML = d;
+        
+        }
     
             
 });

@@ -75,6 +75,30 @@ ul {
    color: white;
 }
 
+#container { height: 600px;
+    background-color: black;
+    margin-top: 90px;
+    color: white;
+}
+
+h2 {
+    padding-top: 30px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.info {
+    margin: auto;
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+img {
+    width: 200px;
+   
+}
+
 #footer {
     background-color: #444242;
     width: 100%;
@@ -89,8 +113,8 @@ ul {
     font-size: 12px;
 }
 
-.datum {
-    margin: 60px;
+#datum {
+    margin-right: 60px;
 }
 
 .footerlänk {
