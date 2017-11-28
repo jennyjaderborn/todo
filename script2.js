@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     var username = "test";
     var password = "password";
@@ -6,9 +5,9 @@ $(document).ready(function(){
     $(".button2").hide();
     $(".läggTillRuta").hide();
     showDate();
+    var loopArray = JSON.parse(localStorage.doList);
 
-    
-if (localStorage.doList == null){ //om inget är sparat i localStorage visas detta
+    if (localStorage.doList == null){ //om inget är sparat i localStorage visas detta
         var stuffToDo = [
             "Klipp gräset",
             "Betala räkningar",
@@ -18,6 +17,7 @@ if (localStorage.doList == null){ //om inget är sparat i localStorage visas det
         var json_str = JSON.stringify(stuffToDo);
         localStorage.doList = json_str;
     }
+
 
     if(sessionStorage.username!= null){//om nån är inne
         inloggad();
@@ -42,7 +42,7 @@ if (localStorage.doList == null){ //om inget är sparat i localStorage visas det
     }
     
 
-    $(".button2").click(function(){ //logga ut-knapp
+    $(".button2").click(function(){
         sessionStorage.clear()
         location.reload();
         
@@ -55,7 +55,7 @@ if (localStorage.doList == null){ //om inget är sparat i localStorage visas det
         
         }
 
-        function inloggad() { //visas för inloggad på sidan
+        function inloggad() {
             $("h1").hide();
             $(".medlemsSida").text(sessionStorage.username);
             $(".button").hide();
@@ -63,55 +63,41 @@ if (localStorage.doList == null){ //om inget är sparat i localStorage visas det
             $(".button2").show();
             $(".forgotPassword").hide();
             $(".läggTillRuta").show();
-    
-            loopList();   
+                loopList();   
 
         }
 
-       $(".button3").click(function(){ //lägg till uppgift
 
-            var uppgift = $(".nyPunkt").val()
-            //console.log(uppgift);
-            var loopArray = JSON.parse(localStorage.doList);
-            loopArray.push(uppgift);
-            //console.log(loopArray);
-            var json_str = JSON.stringify(loopArray);
-            localStorage.doList = json_str; // spara i local storage och kalla på looplist för att skriva om
-            loopList();
-            
-                    });
-
-//Loopa ut min lista, hämtar först listan
         function loopList() {
-            
-            var loopArray = JSON.parse(localStorage.doList);
 
-            var printList = "<ul>";
+            var printList = "";
         
         for(var i = 0; i < loopArray.length; i++) {
-            printList += "<li><a onClick='deleteUppgift("+ i +")'>" + loopArray[i] + "</a></li>";
-    
+            printList += "<div>" + "<a href='#' onclick='deleteUppgift("+ i +")'>" + loopArray[i] + "</a>" + "</div>";
         }
-        printList = printList + "</ul>";
         
         
         document.getElementById("testList").innerHTML = printList;
         //console.log(printList);
+
         }
 
-
-        //ta bort en uppgift från listan och spara om 
-
-        deleteUppgift = function(i) {//ta med i, alltså index, vad som, i nästa funktion
-
-            var loopArray = JSON.parse(localStorage.doList); //hämtar listan
-            loopArray.splice(i,1); // med splice radera en uppgift
-            // sparar om listan i localstorage med det nya innehållet som är kvar på sidan när man loggar in igen
+        $(".button3").click(function(){
+            loopArray.push($(".nyPunkt").val());
             var json_str = JSON.stringify(loopArray);
             localStorage.doList = json_str;
             loopList();
-        
+        });
+
+
+        function deleteUppgift(i) {
+            loopArray.splice(i,1);
+            loopList();
+            //loopArray.splice(index,1);
+            //alert("hej");
+            //loopList();*/
         }
+
     
             
 });

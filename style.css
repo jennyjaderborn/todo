@@ -69,7 +69,7 @@ ul {
 }
 
 #main {
-    height: 600px;
+    height: 800px;
    background-color: black;
    margin-top: 90px;
    color: white;
@@ -119,4 +119,14 @@ img {
 
 .footerlänk {
     margin: 60px;
+}
+
+.läggTillRuta {
+    text-align: center;
+    padding: 10px;
+}
+
+@media all and (max-width: 800px) {
+   
+    
 }
